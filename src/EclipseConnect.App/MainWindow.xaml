@@ -1,0 +1,45 @@
+<Window x:Class="EclipseConnect.App.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="Eclipse Connect" Width="1060" Height="760" MinWidth="820" MinHeight="570"
+ WindowStartupLocation="CenterScreen" FontFamily="Segoe UI" FontSize="14">
+ <Grid>
+  <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+  <Grid.ColumnDefinitions><ColumnDefinition Width="196" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+  <Border Grid.RowSpan="2" Background="{DynamicResource SideBrush}" BorderBrush="{DynamicResource LineBrush}" BorderThickness="0,0,1,0">
+   <DockPanel Margin="16,18,12,12">
+    <StackPanel DockPanel.Dock="Top" Margin="8,0,0,18" Orientation="Horizontal">
+     <Image Source="Assets/Connect.ico" Width="28" Height="28" Margin="0,0,10,0" />
+     <TextBlock Text="Connect" FontSize="23" FontWeight="SemiBold" />
+    </StackPanel>
+    <StackPanel DockPanel.Dock="Bottom" Margin="8,12,0,0">
+     <Button x:Name="ModeButton" Content="Расширенный режим" Click="ChangeMode" FontSize="12" Margin="0,0,0,6" AutomationProperties.Name="Переключить режим интерфейса" />
+     <Button x:Name="TrayButton" Content="Свернуть в трей" Click="HideToTray" AutomationProperties.Name="Свернуть Connect в трей" Margin="0,0,0,6" />
+     <Button Content="Выйти" Click="ExitConnect" AutomationProperties.Name="Выйти из Connect" Margin="0,0,0,8" />
+     <TextBlock x:Name="SafetyStateLabel" Text="Защита включена" Foreground="{DynamicResource AccentBrush}" FontSize="12" Margin="0,0,0,6" />
+     <TextBlock x:Name="VersionLabel" Foreground="{DynamicResource MutedBrush}" FontSize="12" />
+    </StackPanel>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel x:Name="Navigation" /></ScrollViewer>
+   </DockPanel>
+  </Border>
+  <Grid Grid.Column="1" Margin="22,20,22,8">
+   <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+   <DockPanel>
+    <Button x:Name="SafetyButton" DockPanel.Dock="Right" Content="Разрешить управление" Click="ChangeSafety" FontSize="12" VerticalAlignment="Top" Margin="12,0,0,0" AutomationProperties.Name="Разрешить управление компонентами" />
+    <TextBlock x:Name="PageTitle" FontSize="24" FontWeight="SemiBold" />
+   </DockPanel>
+   <TextBlock x:Name="PageSubtitle" Grid.Row="1" Margin="0,6,0,12" TextWrapping="Wrap" Foreground="{DynamicResource MutedBrush}" />
+   <WrapPanel x:Name="PageTools" Grid.Row="2" />
+   <ScrollViewer x:Name="PageScroll" Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+    <StackPanel x:Name="PageContent" Margin="0,0,8,0" />
+   </ScrollViewer>
+  </Grid>
+  <Border Grid.Row="1" Grid.Column="1" BorderBrush="{DynamicResource LineBrush}" BorderThickness="0,1,0,0" Padding="22,10">
+   <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+    <StackPanel VerticalAlignment="Center"><TextBlock x:Name="StatusText" Text="Готово. Ничего не запускается автоматически." TextWrapping="Wrap" FontSize="12" AutomationProperties.LiveSetting="Polite" />
+     <ProgressBar x:Name="WorkProgress" Height="3" Margin="0,8,16,0" Visibility="Collapsed" />
+    </StackPanel>
+    <Button x:Name="CancelButton" Grid.Column="1" Content="Отменить" Visibility="Collapsed" Click="CancelWork" Margin="12,0,0,0" />
+   </Grid>
+  </Border>
+ </Grid>
+</Window>

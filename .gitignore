@@ -1,0 +1,10 @@
+.tools/
+.cache/
+**/bin/
+**/obj/
+dist/
+artifacts/
+data/
+*.user
+*.tmp
+*.partial
