@@ -1,5 +1,9 @@
 # Eclipse Connect
 
+<!-- project-links:start -->
+[Код](https://github.com/PavelHopson/eclipse-connect/tree/master) · [История изменений](https://github.com/PavelHopson/eclipse-connect/commits/master/)
+<!-- project-links:end -->
+
 Windows x64 приложение для диагностики доступности сервисов и ручного управления локальными компонентами FIX, Telegram-прокси и AmneziaWG. Это не VPN-сервис и не гарантия доступа к каждому сайту или приложению.
 
 ## Что делает
